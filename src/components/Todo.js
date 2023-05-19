@@ -17,8 +17,8 @@ function Todo(props) {
           Delete
         </button>
       </div>
-    { isModalOpen ? <Modal/> : null }
-    { isModalOpen ? <Backdrop/> : null }
+      {isModalOpen && <Modal />}
+      {isModalOpen && <Backdrop />}
     </div>
   );
 }
