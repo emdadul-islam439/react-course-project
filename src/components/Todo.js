@@ -6,7 +6,11 @@ function Todo(props) {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   function deleteHandler() {
-    setIsModalOpen((prevState) => !prevState);
+    setIsModalOpen(true);
+  }
+
+  function closeDeleteHandler() {
+    setIsModalOpen(false);
   }
 
   return (
@@ -17,8 +21,10 @@ function Todo(props) {
           Delete
         </button>
       </div>
-      {isModalOpen && <Modal handleOnClick={deleteHandler}/>}
-      {isModalOpen && <Backdrop handleOnClick={deleteHandler}/>}
+      {isModalOpen && (
+        <Modal onCancel={closeDeleteHandler} onConfirm={closeDeleteHandler} />
+      )}
+      {isModalOpen && <Backdrop onClick={closeDeleteHandler} />}
     </div>
   );
 }

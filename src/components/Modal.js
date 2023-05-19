@@ -1,10 +1,22 @@
 function Modal(props) {
-  return(
+  function confirmHandler() {
+    props.onConfirm();
+  }
+
+  function cancelHandler() {
+    props.onCancel();
+  }
+
+  return (
     <div className="modal">
       <p>Are you sure deleting this?</p>
-      <button className="btn btn--alt" onClick={props.handleOnClick}>Cancel</button>
-      <button className="btn" onClick={props.handleOnClick}>Confirm</button>
-    </div>  
+      <button className="btn btn--alt" onClick={cancelHandler}>
+        Cancel
+      </button>
+      <button className="btn" onClick={confirmHandler}>
+        Confirm
+      </button>
+    </div>
   );
 }
 
